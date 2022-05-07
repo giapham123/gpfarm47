@@ -9,12 +9,10 @@
                 ><v-icon>mdi-phone</v-icon> 0965 399 389</v-row
               >
               <v-row no-gutters style="height: 30px"
-                ><v-icon>mdi-map-marker</v-icon> 161 Đường số4, Phường 16, Quận
-                Gò Vấp</v-row
+                ><v-icon>mdi-map-marker</v-icon> 161 Đ.Số4, P.16, Q.Gò Vấp, HCM</v-row
               >
             </p>
           </v-card-text></v-col
-        ><v-col> <v-card-text> </v-card-text></v-col
         ><v-col>
           <v-card-text>
             <p class="text-h7 text--primary">

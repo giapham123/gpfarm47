@@ -7,7 +7,7 @@
             <div
               v-for="(item, index) in lsProducts"
               :key="index"
-              max-width="280"
+              max-width="300"
               class="mx-auto mt-6 d-inline-flex pa-2"
               max-height="350"
               tile
@@ -16,7 +16,7 @@
                 <div style="cursor: pointer">
                   <div class="parent">
                     <v-img
-                      max-width="200"
+                      max-width="250"
                       max-height="300"
                       class="child"
                       :src="item.file"
@@ -86,6 +86,18 @@ export default {
         name:"Mật Ong Rừng",
         price:800000,
         code:"MO3"
+      },
+       {
+        file:"https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg",
+        name:"Mật Ong Rừng",
+        price:800000,
+        code:"MO4"
+      }  ,
+       {
+        file:"https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg",
+        name:"Mật Ong Rừng",
+        price:800000,
+        code:"MO5"
       }     
     ],
     searhPrice: null
