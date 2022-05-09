@@ -27,6 +27,9 @@
               Nguyên.<br>
               Một số sản phẩm có giá niêm yết.<br>
               Một số loại nông sản đặt hàng. <br>
+              Phương thức đặt hàng:<br>
+              Liên hệ trực tiếp: 0965 399 389<br>
+              Fanpage: <a>https://www.facebook.com/gp.farm47</a>
               </v-list-item-title
             >
             <v-list-item-title class="text-center justify-center py-6"
