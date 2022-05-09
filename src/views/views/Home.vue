@@ -14,24 +14,11 @@
     </v-row> -->
     <div max-width="100%" class="mx-auto">
       <v-container class="pa-1">
-        <v-card-title class="text-center justify-center py-6">
-          <h1 class="font-weight-bold text-h4 basil--text">
-           GP FARMS
-          </h1>
-        </v-card-title>
-
         <v-list-item>
           <v-list-item-content>
-            <!-- <v-list-item-title
-              >GP FARMS Chúng tôi chuyên các loại sản phẩm sạch đến từ Tây
-              Nguyên.<br>
-              Một số sản phẩm có giá niêm yết.<br>
-              Một số loại nông sản đặt hàng. <br>
-              Phương thức đặt hàng:<br>
-              Liên hệ trực tiếp: 0965 399 389<br>
-              Fanpage: <a>https://www.facebook.com/gp.farm47</a>
-              </v-list-item-title
-            > -->
+            <v-card-title class="text-center justify-center py-6">
+              <h1 class="font-weight-bold text-h4 basil--text">GP FARMS</h1>
+            </v-card-title>
             <v-list-item-title class="text-center justify-center py-6"
               ><v-divider />
               <h2 class="font-weight-bold text-h6 basil--text">
