@@ -16,13 +16,13 @@
       <v-container class="pa-1">
         <v-card-title class="text-center justify-center py-6">
           <h1 class="font-weight-bold text-h4 basil--text">
-            Thông Tin Về Chúng Tôi
+           GP FARMS
           </h1>
         </v-card-title>
 
         <v-list-item>
           <v-list-item-content>
-            <v-list-item-title
+            <!-- <v-list-item-title
               >GP FARMS Chúng tôi chuyên các loại sản phẩm sạch đến từ Tây
               Nguyên.<br>
               Một số sản phẩm có giá niêm yết.<br>
@@ -31,20 +31,20 @@
               Liên hệ trực tiếp: 0965 399 389<br>
               Fanpage: <a>https://www.facebook.com/gp.farm47</a>
               </v-list-item-title
-            >
+            > -->
             <v-list-item-title class="text-center justify-center py-6"
               ><v-divider />
               <h2 class="font-weight-bold text-h6 basil--text">
-                GP FARMS Chuyên các loại sản phẩm nông sản:
+                Chuyên các loại sản phẩm nông sản:
               </h2>
               <v-divider
             /></v-list-item-title>
-            <v-list-item-subtitle>Mật Ong Các Loại</v-list-item-subtitle>
-            <v-list-item-subtitle>Bột Nghệ</v-list-item-subtitle>
-            <v-list-item-subtitle
-              >Các Loại Nông Sản Từ Tây Nguyên</v-list-item-subtitle
+            <v-list-item-title>Mật Ong Các Loại</v-list-item-title>
+            <v-list-item-title>Bột Nghệ</v-list-item-title>
+            <v-list-item-title
+              >Các Loại Nông Sản Từ Tây Nguyên</v-list-item-title
             >
-            <v-list-item-subtitle>Mật Ong Các Loại</v-list-item-subtitle>
+            <v-list-item-title>Mật Ong Các Loại</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-container>
