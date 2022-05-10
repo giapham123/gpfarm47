@@ -22,16 +22,17 @@
             <v-list-item-title class="text-center justify-center py-6"
               ><v-divider />
               <h2 class="font-weight-bold text-h6 basil--text">
-                Chuyên các loại sản phẩm nông sản:
+                Chuyên các loại sản phẩm nông sản
               </h2>
               <v-divider
             /></v-list-item-title>
-            <v-list-item-title>Mật Ong Các Loại</v-list-item-title>
-            <v-list-item-title>Bột Nghệ</v-list-item-title>
+            <v-list-item-title>Mật Ong</v-list-item-title>
+            <v-list-item-title>Nghệ</v-list-item-title>
+            <v-list-item-title>Cacao</v-list-item-title>
+            <v-list-item-title>Tiêu</v-list-item-title>
             <v-list-item-title
               >Các Loại Nông Sản Từ Tây Nguyên</v-list-item-title
             >
-            <v-list-item-title>Mật Ong Các Loại</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-container>
