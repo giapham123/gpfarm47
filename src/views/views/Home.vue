@@ -31,8 +31,17 @@
             <v-list-item-title>Cacao</v-list-item-title>
             <v-list-item-title>Tiêu</v-list-item-title>
             <v-list-item-title
-              >Các Loại Nông Sản Từ Tây Nguyên</v-list-item-title
+              >Các Loại Nông Sản</v-list-item-title
             >
+            <v-list-item-title class="text-center justify-center py-6"
+              ><v-divider />
+              <h2 class="font-weight-bold text-h6 basil--text">
+                Liên Hệ
+              </h2>
+              <v-divider
+            /></v-list-item-title>
+             <v-list-item-title>Phone & Zalo: 0965 399 389</v-list-item-title>
+            <v-list-item-title>Page: <a>https://www.facebook.com/gp.farm47</a></v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-container>
