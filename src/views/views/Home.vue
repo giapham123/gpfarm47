@@ -17,7 +17,7 @@
         <v-list-item>
           <v-list-item-content>
             <v-card-title class="text-center justify-center py-6">
-              <h1 class="font-weight-bold text-h4 basil--text">GP FARMS</h1>
+              <h1 class="font-weight-bold text-h4 basil--text">GP FARM</h1>
             </v-card-title>
             <v-list-item-title class="text-center justify-center py-6"
               ><v-divider />
@@ -40,7 +40,7 @@
               </h2>
               <v-divider
             /></v-list-item-title>
-             <v-list-item-title>Phone & Zalo: 0965 399 389</v-list-item-title>
+            <v-list-item-title>Phone & Zalo: 0965 399 389</v-list-item-title>
             <v-list-item-title>Page: <a href="https://www.facebook.com/gp.farm47" target="_blank">facebook.com/gp.farm47 (Chuyên Nông Sản Sạch Tây Nguyên - GPFarm47)</a></v-list-item-title>
           </v-list-item-content>
         </v-list-item>
