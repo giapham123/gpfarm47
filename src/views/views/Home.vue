@@ -41,7 +41,7 @@
               <v-divider
             /></v-list-item-title>
              <v-list-item-title>Phone & Zalo: 0965 399 389</v-list-item-title>
-            <v-list-item-title>Page: <a>https://www.facebook.com/gp.farm47</a></v-list-item-title>
+            <v-list-item-title>Page: <a href="https://www.facebook.com/gp.farm47" target="_blank">facebook.com/gp.farm47 (Chuyên Nông Sản Sạch Tây Nguyên - GPFarm47)</a></v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-container>
@@ -64,14 +64,8 @@
   </div>
 </template>
 <script>
-import newProduct from "./NewProduct.vue";
-import bestSaleProduct from "./BestSale.vue";
 import { mapActions, mapState } from "vuex";
 export default {
-  components: {
-    newProduct,
-    bestSaleProduct,
-  },
   data: () => ({
     lsProductsBeTrai: [],
     lsProductsBeGai: [],
