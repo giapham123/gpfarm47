@@ -47,46 +47,46 @@
   </v-app-bar>
 </template>
 <script>
-import { mapActions } from "vuex";
+import { mapActions } from 'vuex'
 export default {
   data: () => ({ modelTabs: null }),
   watch: {},
   computed: {},
-  created() {
-    if (sessionStorage.getItem("tabs") == "/listproduct/TTBG") {
-      this.modelTabs = 1;
-      this.$router.push({ path: "/listproduct/TTBG" });
-    } else if (sessionStorage.getItem("tabs") == "/listproduct/TTBT") {
-      this.modelTabs = 2;
-      this.$router.push({ path: "/listproduct/TTBT" });
+  created () {
+    if (sessionStorage.getItem('tabs') == '/listproduct/TTBG') {
+      this.modelTabs = 1
+      this.$router.push({ path: '/listproduct/TTBG' })
+    } else if (sessionStorage.getItem('tabs') == '/listproduct/TTBT') {
+      this.modelTabs = 2
+      this.$router.push({ path: '/listproduct/TTBT' })
     }
   },
   methods: {
-    ...mapActions("views", ["changeURL"]),
-    directlinkHome() {
-      this.$router.push({ path: "/" });
-      sessionStorage.setItem("tabs", window.location.pathname);
+    ...mapActions('views', ['changeURL']),
+    directlinkHome () {
+      this.$router.push({ path: '/' })
+      sessionStorage.setItem('tabs', window.location.pathname)
     },
-    directlinkLsProduct() {
-      this.$router.push({ path: '/mat-ong' });
+    directlinkLsProduct () {
+      this.$router.push({ path: '/mat-ong' })
     },
-    directlinkLogin() {
-      this.$router.push({ path: "/login" });
+    directlinkLogin () {
+      this.$router.push({ path: '/login' })
     },
-    directlinkLsProductNghe(){
-      this.$router.push({ path: "/nghe" });
+    directlinkLsProductNghe () {
+      this.$router.push({ path: '/nghe' })
     },
-    directlinkLsProductTieu(){
-       this.$router.push({ path: "/tieu" });
+    directlinkLsProductTieu () {
+      this.$router.push({ path: '/tieu' })
     },
-    directlinkLsProductNongSanKhac(){
-       this.$router.push({ path: "/nong-san-khac" });
+    directlinkLsProductNongSanKhac () {
+      this.$router.push({ path: '/nong-san-khac' })
     },
-    directlinkLsProductCacao(){
-       this.$router.push({ path: "/cacao" });
+    directlinkLsProductCacao () {
+      this.$router.push({ path: '/cacao' })
     }
-  },
-};
+  }
+}
 </script>
 <style scoped>
 .headerStyle {

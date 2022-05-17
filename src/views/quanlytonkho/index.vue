@@ -273,10 +273,10 @@ export default {
       this.images = result.data
     },
     async searchData () {
-      if(this.dates[0] > this.dates[1]){
-        var tempDates = null;
+      if (this.dates[0] > this.dates[1]) {
+        var tempDates = null
         tempDates = this.dates[0]
-        this.dates[0] =this.dates[1]
+        this.dates[0] = this.dates[1]
         this.dates[1] = tempDates
       }
       this.initialize()

@@ -4,6 +4,6 @@ module.exports = {
   },
   productionSourceMap: false,
   configureWebpack: {
-  }, 
-  // publicPath: '/',      
+  }
+  // publicPath: '/',
 }

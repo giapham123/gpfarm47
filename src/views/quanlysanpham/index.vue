@@ -125,27 +125,27 @@
   </v-card>
 </template>
 <script>
-import { mapActions } from "vuex";
-import moment from "moment";
-import Loading from "vue-loading-overlay";
-import "vue-loading-overlay/dist/vue-loading.css";
+import { mapActions } from 'vuex'
+import moment from 'moment'
+import Loading from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/vue-loading.css'
 export default {
   components: {
-    Loading,
+    Loading
   },
   data: () => ({
     color: {
       selected: [],
-      item: [],
+      item: []
     },
     loading: false,
-    name_search: "",
+    name_search: '',
     menu: false,
     dates: [
       new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
         .toISOString()
         .substr(0, 10),
-      new Date().toISOString().substr(0, 10),
+      new Date().toISOString().substr(0, 10)
     ],
     ishowimage: false,
     unit: 0,
@@ -157,225 +157,225 @@ export default {
     dialogDelete: false,
     headers: [
       {
-        text: "MÃ SP",
-        align: "start",
+        text: 'MÃ SP',
+        align: 'start',
         sortable: false,
-        value: "product_code",
-        width: "50px",
-        class: "primary white--text",
+        value: 'product_code',
+        width: '50px',
+        class: 'primary white--text'
       },
       {
-        text: "TÊN",
-        value: "name",
-        width: "200px",
+        text: 'TÊN',
+        value: 'name',
+        width: '200px',
         sortable: false,
-        class: "primary white--text",
+        class: 'primary white--text'
       },
       {
-        text: "KÍCH THƯỚC",
-        value: "size",
-        width: "200px",
+        text: 'KÍCH THƯỚC',
+        value: 'size',
+        width: '200px',
         sortable: false,
-        class: "primary white--text",
+        class: 'primary white--text'
       },
       {
-        text: "SỐ LƯỢNG NHẬP",
-        value: "quantity",
-        width: "200px",
+        text: 'SỐ LƯỢNG NHẬP',
+        value: 'quantity',
+        width: '200px',
         sortable: false,
-        class: "primary white--text",
+        class: 'primary white--text'
       },
       {
-        text: "GIÁ",
-        value: "price",
-        width: "100px",
+        text: 'GIÁ',
+        value: 'price',
+        width: '100px',
         sortable: false,
-        class: "primary white--text",
+        class: 'primary white--text'
       },
       {
-        text: "NGƯỜI NHẬP",
-        value: "created_by",
-        width: "100px",
+        text: 'NGƯỜI NHẬP',
+        value: 'created_by',
+        width: '100px',
         sortable: false,
-        class: "primary white--text",
+        class: 'primary white--text'
       },
       {
-        text: "View",
-        value: "view",
-        width: "100px",
+        text: 'View',
+        value: 'view',
+        width: '100px',
         sortable: false,
-        class: "primary white--text",
+        class: 'primary white--text'
       },
       {
-        text: "HÀNH ĐỘNG",
-        value: "actions",
-        width: "100px",
+        text: 'HÀNH ĐỘNG',
+        value: 'actions',
+        width: '100px',
         sortable: false,
-        class: "primary white--text",
-      },
+        class: 'primary white--text'
+      }
     ],
     listDataProduct: [],
-    product_code: "",
-    name: "",
+    product_code: '',
+    name: '',
     size: {
-      selected: "",
-      item: [],
+      selected: '',
+      item: []
     },
-    quantity: "",
-    price: "",
+    quantity: '',
+    price: '',
     category: {
-      selected: "",
+      selected: '',
       item: [
         {
-          category_cd: "F",
-          name: "Thời Trang Bé Gái",
+          category_cd: 'F',
+          name: 'Thời Trang Bé Gái'
         },
         {
-          category_cd: "M",
-          name: "Thời Trang Bé Trai",
-        },
-      ],
+          category_cd: 'M',
+          name: 'Thời Trang Bé Trai'
+        }
+      ]
     },
-    product_codeDel: "",
+    product_codeDel: ''
   }),
 
   computed: {
-    dateRangeText() {
+    dateRangeText () {
       if (this.dates[0] < this.dates[1]) {
         return (
-          moment(this.dates[0]).format("L") +
-          " ~ " +
-          moment(this.dates[1]).format("L")
-        );
+          moment(this.dates[0]).format('L') +
+          ' ~ ' +
+          moment(this.dates[1]).format('L')
+        )
       } else {
         return (
-          moment(this.dates[1]).format("L") +
-          " ~ " +
-          moment(this.dates[0]).format("L")
-        );
+          moment(this.dates[1]).format('L') +
+          ' ~ ' +
+          moment(this.dates[0]).format('L')
+        )
       }
-    },
+    }
   },
 
   watch: {
-    listDataProduct() {
+    listDataProduct () {
       for (let i = 0; i < this.listDataProduct.length; i++) {
         if (this.listDataProduct[i].view == 1) {
-          this.listDataProduct[i].viewProduct = true;
+          this.listDataProduct[i].viewProduct = true
         } else {
-          this.listDataProduct[i].viewProduct = false;
+          this.listDataProduct[i].viewProduct = false
         }
       }
-    },
+    }
   },
 
-  created() {
-    this.initialize();
+  created () {
+    this.initialize()
   },
 
   methods: {
-    ...mapActions("quanlysanpham", [
-      "themSanPham",
-      "laytatcasanpham",
-      "laysize",
-      "layhinh",
-      "deleteProduct",
-      "getcolor",
+    ...mapActions('quanlysanpham', [
+      'themSanPham',
+      'laytatcasanpham',
+      'laysize',
+      'layhinh',
+      'deleteProduct',
+      'getcolor',
       'updateView'
     ]),
-    async initialize() {
+    async initialize () {
       var param = {
         from_dt: this.dates[0],
         to_dt: this.dates[1],
-        name: this.name_search,
-      };
-      var resultColor = await this.getcolor();
-      var resultSize = await this.laysize();
-      var result = await this.laytatcasanpham(param);
-      this.listDataProduct = result.data;
-      this.size.item = resultSize.data;
-      this.color.item = resultColor.data;
+        name: this.name_search
+      }
+      var resultColor = await this.getcolor()
+      var resultSize = await this.laysize()
+      var result = await this.laytatcasanpham(param)
+      this.listDataProduct = result.data
+      this.size.item = resultSize.data
+      this.color.item = resultColor.data
     },
 
-    editItem(item) {
-      this.ishowimage = true;
-      this.product_code = item.item.product_code;
-      this.name = item.item.name;
-      this.category.selected = item.item.category_id;
-      this.size.selected = item.item.size_id;
-      this.quantity = item.item.quantity;
-      this.price = item.item.price;
-      this.dialog = true;
+    editItem (item) {
+      this.ishowimage = true
+      this.product_code = item.item.product_code
+      this.name = item.item.name
+      this.category.selected = item.item.category_id
+      this.size.selected = item.item.size_id
+      this.quantity = item.item.quantity
+      this.price = item.item.price
+      this.dialog = true
     },
 
-    deleteItem(item) {
-      this.product_codeDel = item.item.product_code;
-      this.dialogDelete = true;
+    deleteItem (item) {
+      this.product_codeDel = item.item.product_code
+      this.dialogDelete = true
     },
 
-    deleteItemConfirm() {
-      this.closeDelete();
+    deleteItemConfirm () {
+      this.closeDelete()
     },
 
-    close() {
-      this.color.selected = [];
-      this.dialog = false;
-      this.product_code = "";
-      this.name = "";
-      this.category.selected = "";
-      this.size.selected = "";
-      this.quantity = "";
-      this.price = "";
-      this.ishowimage = false;
+    close () {
+      this.color.selected = []
+      this.dialog = false
+      this.product_code = ''
+      this.name = ''
+      this.category.selected = ''
+      this.size.selected = ''
+      this.quantity = ''
+      this.price = ''
+      this.ishowimage = false
       this.$nextTick(() => {
-        this.initialize();
-        this.formHasErrors = false;
+        this.initialize()
+        this.formHasErrors = false
 
         Object.keys(this.form).forEach((f) => {
-          this.$refs[f].reset();
-        });
-      });
+          this.$refs[f].reset()
+        })
+      })
     },
 
-    closeDelete() {
-      this.dialogDelete = false;
+    closeDelete () {
+      this.dialogDelete = false
       this.$nextTick(() => {
-        this.removeProduct();
-        this.initialize();
-      });
+        this.removeProduct()
+        this.initialize()
+      })
     },
-    async removeProduct() {
-      var result = await this.deleteProduct(this.product_codeDel);
+    async removeProduct () {
+      var result = await this.deleteProduct(this.product_codeDel)
     },
 
-    async displayimage(row) {
-      var result = await this.layhinh({ product_id: row.product_code });
+    async displayimage (row) {
+      var result = await this.layhinh({ product_id: row.product_code })
       for (var i = 0; i < result.data.length; i++) {
-        result.data[i].file = process.env.VUE_APP_SERVER + result.data[i].file;
+        result.data[i].file = process.env.VUE_APP_SERVER + result.data[i].file
       }
-      this.images = result.data;
+      this.images = result.data
     },
-    async searchData() {
-      this.loading = true;
+    async searchData () {
+      this.loading = true
       var param = {
         from_dt: this.dates[0],
         to_dt: this.dates[1],
-        name: this.name_search,
-      };
-      var result = await this.laytatcasanpham(param);
-      this.listDataProduct = result.data;
-      this.loading = false;
+        name: this.name_search
+      }
+      var result = await this.laytatcasanpham(param)
+      this.listDataProduct = result.data
+      this.loading = false
     },
-    async ViewDataCheck(item){
-      if(item.viewProduct == true){
+    async ViewDataCheck (item) {
+      if (item.viewProduct == true) {
         item.viewProduct = 0
-      }else{
+      } else {
         item.viewProduct = 1
       }
       await this.updateView(item)
     }
-  },
-};
+  }
+}
 </script>
 <style scoped>
 #preview {

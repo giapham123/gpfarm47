@@ -112,7 +112,7 @@ const routes = [
   {
     path: '/tieu',
     name: 'lsTieu',
-    component:lsTieu,
+    component: lsTieu,
     meta: {
       requiresAuth: false
     }

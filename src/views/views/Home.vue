@@ -64,52 +64,52 @@
   </div>
 </template>
 <script>
-import { mapActions, mapState } from "vuex";
+import { mapActions, mapState } from 'vuex'
 export default {
   data: () => ({
     lsProductsBeTrai: [],
     lsProductsBeGai: [],
     model: null,
-    colors: ["white"],
+    colors: ['white'],
     slides: [
-      require("../../../assets/back-ground.jpg"),
-      "https://hetyma.vn/wp-content/uploads/2020/06/6-1.png",
-      "https://matongvang.com/wp-content/uploads/2020/08/mat-ong-hoa-ca-phe5-min.jpg",
-      "https://dankhang.vn/wp-content/uploads/2020/06/hat-tieu-den-co-nhieu-cong-dung-doi-voi-suc-khoe.jpg",
-      "https://cdn.tgdd.vn/2021/06/content/1.1-800x450-4.jpg",
-      "https://cdn.dayphache.edu.vn/wp-content/uploads/2018/01/bot-cacao.jpg",
+      require('../../../assets/back-ground.jpg'),
+      'https://hetyma.vn/wp-content/uploads/2020/06/6-1.png',
+      'https://matongvang.com/wp-content/uploads/2020/08/mat-ong-hoa-ca-phe5-min.jpg',
+      'https://dankhang.vn/wp-content/uploads/2020/06/hat-tieu-den-co-nhieu-cong-dung-doi-voi-suc-khoe.jpg',
+      'https://cdn.tgdd.vn/2021/06/content/1.1-800x450-4.jpg',
+      'https://cdn.dayphache.edu.vn/wp-content/uploads/2018/01/bot-cacao.jpg'
       // "https://www.vietfuntravel.com.vn/image/data/Mien-tay-n/ben-tre/top-10-vuon-trai-cay-noi-tieng-o-ben-tre-khong-the-bo-qua-h1.jpg"
     ],
     images: [
-      "https://hetyma.vn/wp-content/uploads/2020/06/6-1.png",
-      "https://matongvang.com/wp-content/uploads/2020/08/mat-ong-hoa-ca-phe5-min.jpg",
-      "https://dankhang.vn/wp-content/uploads/2020/06/hat-tieu-den-co-nhieu-cong-dung-doi-voi-suc-khoe.jpg",
-      "https://cdn.tgdd.vn/2021/06/content/1.1-800x450-4.jpg",
-      "https://cdn.dayphache.edu.vn/wp-content/uploads/2018/01/bot-cacao.jpg",
-      "https://www.vietfuntravel.com.vn/image/data/Mien-tay-n/ben-tre/top-10-vuon-trai-cay-noi-tieng-o-ben-tre-khong-the-bo-qua-h1.jpg",
-    ],
+      'https://hetyma.vn/wp-content/uploads/2020/06/6-1.png',
+      'https://matongvang.com/wp-content/uploads/2020/08/mat-ong-hoa-ca-phe5-min.jpg',
+      'https://dankhang.vn/wp-content/uploads/2020/06/hat-tieu-den-co-nhieu-cong-dung-doi-voi-suc-khoe.jpg',
+      'https://cdn.tgdd.vn/2021/06/content/1.1-800x450-4.jpg',
+      'https://cdn.dayphache.edu.vn/wp-content/uploads/2018/01/bot-cacao.jpg',
+      'https://www.vietfuntravel.com.vn/image/data/Mien-tay-n/ben-tre/top-10-vuon-trai-cay-noi-tieng-o-ben-tre-khong-the-bo-qua-h1.jpg'
+    ]
   }),
   watch: {},
   computed: {},
-  created() {},
+  created () {},
   methods: {
-    ...mapActions("views", ["getAllData", "changeURL"]),
+    ...mapActions('views', ['getAllData', 'changeURL']),
 
-    directlinkLsProductGirl() {
-      this.changeURL("TTBG");
-      this.$router.push({ path: `/listproduct/TTBG` });
-      sessionStorage.setItem("tabs", window.location.pathname);
+    directlinkLsProductGirl () {
+      this.changeURL('TTBG')
+      this.$router.push({ path: '/listproduct/TTBG' })
+      sessionStorage.setItem('tabs', window.location.pathname)
     },
-    directlinkLsProductBoy() {
-      this.changeURL("TTBT");
-      this.$router.push({ path: `/listproduct/TTBT` });
-      sessionStorage.setItem("tabs", window.location.pathname);
+    directlinkLsProductBoy () {
+      this.changeURL('TTBT')
+      this.$router.push({ path: '/listproduct/TTBT' })
+      sessionStorage.setItem('tabs', window.location.pathname)
     },
-    moveToDetails(item) {
-      this.$router.push({ path: `/${item.product_cd}` });
-    },
-  },
-};
+    moveToDetails (item) {
+      this.$router.push({ path: `/${item.product_cd}` })
+    }
+  }
+}
 </script>
 <style>
 </style>

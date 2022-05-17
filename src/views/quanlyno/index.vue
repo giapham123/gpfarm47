@@ -41,11 +41,11 @@
                   >
                     <v-date-picker locale="vi" v-model="dates" range></v-date-picker
                     ><v-spacer></v-spacer>
-                    <v-btn text 
+                    <v-btn text
                 color="primary" @click="menu = false">
                       Cancel
                     </v-btn>
-                    <v-btn text 
+                    <v-btn text
                 color="primary" @click="$refs.menu.save(dates)">
                       OK
                     </v-btn>

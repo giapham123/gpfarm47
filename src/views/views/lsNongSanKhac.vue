@@ -50,42 +50,42 @@
   </v-container>
 </template>
 <script>
-import { mapActions, mapState } from "vuex";
-import moreImage from "./moreImage.vue"
+import { mapActions, mapState } from 'vuex'
+import moreImage from './moreImage.vue'
 export default {
-   components: {
+  components: {
     moreImage
   },
   data: () => ({
-    sortPrice: "newest",
+    sortPrice: 'newest',
     page: 1,
     paramImage: [],
     showDialog: false,
     selectedItem: 1,
     items: [
-      { text: "Real-Time", icon: "mdi-clock" },
-      { text: "Audience", icon: "mdi-account" },
-      { text: "Conversions", icon: "mdi-flag" },
+      { text: 'Real-Time', icon: 'mdi-clock' },
+      { text: 'Audience', icon: 'mdi-account' },
+      { text: 'Conversions', icon: 'mdi-flag' }
     ],
     lsProducts: [
       {
-        file:"https://i1-kinhdoanh.vnecdn.net/2022/04/21/sr-1650527126-7085-1650528228.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=6UtM5yPFif-9ri4iG1DScQ",
-        name:"Sầu Riêng",
-        price:"Hàng Order",
-        code:1
+        file: 'https://i1-kinhdoanh.vnecdn.net/2022/04/21/sr-1650527126-7085-1650528228.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=6UtM5yPFif-9ri4iG1DScQ',
+        name: 'Sầu Riêng',
+        price: 'Hàng Order',
+        code: 1
       },
-       {
-        file:"https://leep.imgix.net/2020/09/la-xoai-giup-giam-mo-02.jpg?auto=compress&fm=pjpg&ixlib=php-1.2.1",
-        name:"Xoài",
-       price:"Hàng Order",
-        code:2
+      {
+        file: 'https://leep.imgix.net/2020/09/la-xoai-giup-giam-mo-02.jpg?auto=compress&fm=pjpg&ixlib=php-1.2.1',
+        name: 'Xoài',
+        price: 'Hàng Order',
+        code: 2
       },
-      
-       {
-        file:"https://afamilycdn.com/thumb_w/650/2017/bo-2-1492596568478.jpg",
-        name:"Bơ",
-        price:"Hàng Order",
-        code:3
+
+      {
+        file: 'https://afamilycdn.com/thumb_w/650/2017/bo-2-1492596568478.jpg',
+        name: 'Bơ',
+        price: 'Hàng Order',
+        code: 3
       }
     ],
     searhPrice: null
@@ -93,27 +93,27 @@ export default {
   watch: {
   },
   computed: {
-    ...mapState("views", ["urlChange"]),
-    lsData() {
-      if (this.urlChange == "TTBT") {
-        this.initialize("Thời Trang Bé Trai");
-        return "Thời Trang Bé Trai";
-      } else if (this.urlChange == "TTBG") {
-        this.initialize("Thời Trang Bé Gái");
-        return "Thời Trang Bé Gái";
+    ...mapState('views', ['urlChange']),
+    lsData () {
+      if (this.urlChange == 'TTBT') {
+        this.initialize('Thời Trang Bé Trai')
+        return 'Thời Trang Bé Trai'
+      } else if (this.urlChange == 'TTBG') {
+        this.initialize('Thời Trang Bé Gái')
+        return 'Thời Trang Bé Gái'
       }
-    },
+    }
   },
-  created() {
-    if (this.$route.params.id == "TTBT") {
-      this.initialize("Thời Trang Bé Trai");
-    } else if (this.$route.params.id == "TTBG") {
-      this.initialize("Thời Trang Bé Gái");
+  created () {
+    if (this.$route.params.id == 'TTBT') {
+      this.initialize('Thời Trang Bé Trai')
+    } else if (this.$route.params.id == 'TTBG') {
+      this.initialize('Thời Trang Bé Gái')
     }
   },
   methods: {
-    moreImages(item){
-      if(item.code == 1){
+    moreImages (item) {
+      if (item.code == 1) {
         this.paramImage = [
           'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg',
           'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg',
@@ -122,16 +122,16 @@ export default {
           'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg'
         ]
       }
-      if(item.code == 2){
-         this.paramImage = [
+      if (item.code == 2) {
+        this.paramImage = [
           'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg',
           'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg',
           'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg',
           'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg'
         ]
       }
-      if(item.code == 3){
-         this.paramImage = [
+      if (item.code == 3) {
+        this.paramImage = [
           'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg',
           'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg',
           'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg'
@@ -139,11 +139,11 @@ export default {
       }
       this.showDialog = true
     },
-    closeDialog(){
+    closeDialog () {
       this.showDialog = false
     }
-  },
-};
+  }
+}
 </script>
   <style>
 .parent {

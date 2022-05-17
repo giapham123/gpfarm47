@@ -38,28 +38,28 @@
 export default {
   props: {
     dialog: false,
-    imagesParam:{
-      default:[],
+    imagesParam: {
+      default: [],
       type: Array
     }
   },
   data: () => ({
-    images:[]
+    images: []
   }),
-  computed:{
-    show(){
-        return this.dialog
+  computed: {
+    show () {
+      return this.dialog
     }
   },
-  watch:{
-    imagesParam(){
+  watch: {
+    imagesParam () {
       this.images = this.imagesParam
     }
   },
   methods: {
-    close() {
-      this.$emit("close", false);
-    },
-  },
-};
+    close () {
+      this.$emit('close', false)
+    }
+  }
+}
 </script>

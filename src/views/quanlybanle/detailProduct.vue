@@ -75,117 +75,117 @@
   </v-dialog>
 </template>
 <script>
-import { mapActions } from "vuex";
-import Loading from "vue-loading-overlay";
-import "vue-loading-overlay/dist/vue-loading.css";
+import { mapActions } from 'vuex'
+import Loading from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/vue-loading.css'
 export default {
   components: { Loading },
   props: {
     dialog: false,
-    params: Array,
+    params: Array
   },
   data: () => ({
     loading: false,
     formHasErrors: false,
-    customer_name: "",
-    phone: "",
-    address: "",
+    customer_name: '',
+    phone: '',
+    address: '',
     images: [],
     headers: [
       {
-        text: "STT",
-        align: "start",
+        text: 'STT',
+        align: 'start',
         sortable: false,
-        value: "stt",
-        width: "100px",
+        value: 'stt',
+        width: '100px'
       },
       {
-        text: "Mã SP",
-        align: "start",
+        text: 'Mã SP',
+        align: 'start',
         sortable: false,
-        value: "product_cd",
-        width: "100px",
+        value: 'product_cd',
+        width: '100px'
       },
-      { text: "Tên", value: "name", width: "400px", sortable: false },
-      { text: "Tệp", value: "block", width: "200px", sortable: false },
-      { text: "Kích thước", value: "size_cd", width: "200px", sortable: false },
-      { text: "Giá", value: "price", width: "200px", sortable: false },
+      { text: 'Tên', value: 'name', width: '400px', sortable: false },
+      { text: 'Tệp', value: 'block', width: '200px', sortable: false },
+      { text: 'Kích thước', value: 'size_cd', width: '200px', sortable: false },
+      { text: 'Giá', value: 'price', width: '200px', sortable: false }
     ],
-    listDataProduct: [],
+    listDataProduct: []
   }),
   computed: {
-    form() {
+    form () {
       return {
         customer_name: this.customer_name,
         phone: this.phone,
-        address: this.address,
-      };
-    },
+        address: this.address
+      }
+    }
   },
   watch: {
-    params() {
-      this.listDataProduct = this.params;
+    params () {
+      this.listDataProduct = this.params
       for (var i = 0; i < this.listDataProduct.length; i++) {
-        this.listDataProduct[i].stt = i + 1;
+        this.listDataProduct[i].stt = i + 1
       }
-    },
+    }
   },
-  created() {},
+  created () {},
   methods: {
-    ...mapActions("quanlybanle", ["layhinh", "SaveDataInRetailView"]),
-    close() {
-      this.$emit("close");
-      this.errorMessages = [];
-      this.formHasErrors = false;
+    ...mapActions('quanlybanle', ['layhinh', 'SaveDataInRetailView']),
+    close () {
+      this.$emit('close')
+      this.errorMessages = []
+      this.formHasErrors = false
 
       Object.keys(this.form).forEach((f) => {
-        this.$refs[f].reset();
-      });
+        this.$refs[f].reset()
+      })
     },
-    async displayimage(row) {
-      var result = await this.layhinh({ product_id: row.product_cd });
+    async displayimage (row) {
+      var result = await this.layhinh({ product_id: row.product_cd })
 
       for (var i = 0; i < result.data.length; i++) {
-        result.data[i].file = "http://127.0.0.1:8000" + result.data[i].file;
+        result.data[i].file = 'http://127.0.0.1:8000' + result.data[i].file
       }
-      this.images = result.data;
+      this.images = result.data
     },
-    async save() {
-      this.loading = true;
-      this.formHasErrors = false;
+    async save () {
+      this.loading = true
+      this.formHasErrors = false
       Object.keys(this.form).forEach((f) => {
-        this.$refs[f].validate(true);
-        if (!this.form[f]) this.formHasErrors = true;
-      });
+        this.$refs[f].validate(true)
+        if (!this.form[f]) this.formHasErrors = true
+      })
       if (!this.formHasErrors) {
         for (var i = 0; i < this.listDataProduct.length; i++) {
-          this.listDataProduct[i].customer_name = this.customer_name;
-          this.listDataProduct[i].size = this.listDataProduct[i].size_cd;
-          this.listDataProduct[i].customerPhone = this.phone;
-          this.listDataProduct[i].customerAddress = this.address;
+          this.listDataProduct[i].customer_name = this.customer_name
+          this.listDataProduct[i].size = this.listDataProduct[i].size_cd
+          this.listDataProduct[i].customerPhone = this.phone
+          this.listDataProduct[i].customerAddress = this.address
         }
-        var result = await this.SaveDataInRetailView(this.listDataProduct);
+        var result = await this.SaveDataInRetailView(this.listDataProduct)
 
-        var raw = window.atob(result.data);
-        var uInt8Array = new Uint8Array(raw.length);
+        var raw = window.atob(result.data)
+        var uInt8Array = new Uint8Array(raw.length)
         for (var i = 0; i < raw.length; ++i) {
-          uInt8Array[i] = raw.charCodeAt(i);
+          uInt8Array[i] = raw.charCodeAt(i)
         }
-        const link = document.createElement("a");
+        const link = document.createElement('a')
         const blob = new Blob([uInt8Array], {
-          type: "application/vnd.ms-excel",
-        });
-        link.style.display = "none";
-        link.href = URL.createObjectURL(blob);
-        link.setAttribute("download", "HoaDon");
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        this.$emit("finishedExportRetail");
-        this.$emit("close");
+          type: 'application/vnd.ms-excel'
+        })
+        link.style.display = 'none'
+        link.href = URL.createObjectURL(blob)
+        link.setAttribute('download', 'HoaDon')
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+        this.$emit('finishedExportRetail')
+        this.$emit('close')
       }
-      this.loading = false;
-    },
-  },
-};
+      this.loading = false
+    }
+  }
+}
 </script>

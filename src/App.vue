@@ -74,17 +74,17 @@
   </v-app>
 </template>
 <script>
-import { mapState, mapActions } from "vuex";
-import changepass from "./views/login/changePassword";
-import jwtDecode from "jwt-decode";
-import Header from "./views/views/Header.vue";
-import Footer from "./views/views/Footer.vue";
+import { mapState, mapActions } from 'vuex'
+import changepass from './views/login/changePassword'
+import jwtDecode from 'jwt-decode'
+import Header from './views/views/Header.vue'
+import Footer from './views/views/Footer.vue'
 
 export default {
   components: {
     changepass,
     Footer,
-    Header,
+    Header
   },
   data: () => ({
     selectedItem: 0,
@@ -92,92 +92,92 @@ export default {
     right: null,
     isShow: false,
     successMes: false,
-    text: "",
+    text: '',
     timeout: 2000,
-    colorMess: "success",
+    colorMess: 'success'
   }),
   watch: {},
   computed: {
-    ...mapState("login", ["is_login"]),
-    show() {
-      var pathTru = false;
-      if (JSON.parse(localStorage.getItem("path")) != null) {
+    ...mapState('login', ['is_login']),
+    show () {
+      var pathTru = false
+      if (JSON.parse(localStorage.getItem('path')) != null) {
         for (
           var i = 0;
-          i < JSON.parse(localStorage.getItem("path")).length;
+          i < JSON.parse(localStorage.getItem('path')).length;
           i++
         ) {
           if (
             window.location.pathname ==
-            JSON.parse(localStorage.getItem("path"))[i].path
+            JSON.parse(localStorage.getItem('path'))[i].path
           ) {
-            pathTru = true;
-            break;
+            pathTru = true
+            break
           }
         }
       }
       if (!pathTru) {
-        this.$router.push({ path: "/" });
+        this.$router.push({ path: '/' })
       }
-      this.is_login;
-      if (localStorage.getItem("refresh_token") != null) {
-        this.items = JSON.parse(localStorage.getItem("path"));
-        return true;
+      this.is_login
+      if (localStorage.getItem('refresh_token') != null) {
+        this.items = JSON.parse(localStorage.getItem('path'))
+        return true
       }
-      return false;
-    },
+      return false
+    }
   },
-  created() {
-    if (JSON.parse(localStorage.getItem("path")) != null) {
+  created () {
+    if (JSON.parse(localStorage.getItem('path')) != null) {
       for (
         var i = 0;
-        i < JSON.parse(localStorage.getItem("path")).length;
+        i < JSON.parse(localStorage.getItem('path')).length;
         i++
       ) {
         if (
-          JSON.parse(localStorage.getItem("path"))[i].path ==
+          JSON.parse(localStorage.getItem('path'))[i].path ==
           window.location.pathname
         ) {
-          this.selectedItem = i;
+          this.selectedItem = i
         }
       }
     }
   },
   methods: {
-    ...mapActions("login", ["logout"]),
-    directlink(item) {
-      const decodedToken = jwtDecode(localStorage.getItem("refresh_token"));
-      var expriedToken = decodedToken.exp * 1000 > new Date().getTime();
-      if (localStorage.getItem("refresh_token") == null || !expriedToken) {
-        this.logoutSys();
+    ...mapActions('login', ['logout']),
+    directlink (item) {
+      const decodedToken = jwtDecode(localStorage.getItem('refresh_token'))
+      var expriedToken = decodedToken.exp * 1000 > new Date().getTime()
+      if (localStorage.getItem('refresh_token') == null || !expriedToken) {
+        this.logoutSys()
       }
-      this.$router.push({ path: item });
+      this.$router.push({ path: item })
     },
-    logoutSys() {
-      this.logout();
-      this.$router.push({ name: "login" });
+    logoutSys () {
+      this.logout()
+      this.$router.push({ name: 'login' })
     },
-    OpenPopupChangePass() {
-      this.isShow = true;
+    OpenPopupChangePass () {
+      this.isShow = true
     },
-    closeChangePass(param, isClose) {
+    closeChangePass (param, isClose) {
       if (isClose) {
         if (param.success) {
-          this.text = param.message;
-          this.successMes = true;
-          this.colorMess = "success";
-          this.isShow = false;
+          this.text = param.message
+          this.successMes = true
+          this.colorMess = 'success'
+          this.isShow = false
         } else {
-          this.text = param.message;
-          this.successMes = true;
-          this.colorMess = "red";
+          this.text = param.message
+          this.successMes = true
+          this.colorMess = 'red'
         }
       } else {
-        this.isShow = false;
+        this.isShow = false
       }
-    },
-  },
-};
+    }
+  }
+}
 </script>
 <style>
 #app {

@@ -39,10 +39,10 @@
   </v-card>
 </template>
 <script>
-import { mapActions } from "vuex";
-import moment from "moment";
-import Loading from "vue-loading-overlay";
-import "vue-loading-overlay/dist/vue-loading.css";
+import { mapActions } from 'vuex'
+import moment from 'moment'
+import Loading from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/vue-loading.css'
 export default {
   components: { Loading },
   data: () => ({
@@ -52,90 +52,89 @@ export default {
     formHasErrors: false,
     headers: [
       {
-        text: "No",
-        align: "start",
+        text: 'No',
+        align: 'start',
         sortable: false,
-        value: "no",
-        width: "5px",
-        class: "primary white--text",
+        value: 'no',
+        width: '5px',
+        class: 'primary white--text'
       },
       {
-        text: "Mã Thể Loại",
-        value: "cate_cd",
-        width: "200px",
+        text: 'Mã Thể Loại',
+        value: 'cate_cd',
+        width: '200px',
         sortable: false,
-        class: "primary white--text",
+        class: 'primary white--text'
       },
       {
-        text: "Tên Thể Loại",
-        value: "name",
-        width: "100px",
+        text: 'Tên Thể Loại',
+        value: 'name',
+        width: '100px',
         sortable: false,
-        class: "primary white--text",
-      },
+        class: 'primary white--text'
+      }
     ],
-    listCate: [],
+    listCate: []
   }),
 
   computed: {
-    form() {
+    form () {
       return {
         cate_cd: this.cate_cd,
-        name: this.name,
-      };
-    },
+        name: this.name
+      }
+    }
   },
 
   watch: {
-    listCate() {
+    listCate () {
       for (let i = 0; i < this.listCate.length; i++) {
-        this.listCate[i].no = i + 1;
+        this.listCate[i].no = i + 1
       }
-    },
+    }
   },
 
-  created() {
-    this.initialize();
+  created () {
+    this.initialize()
   },
 
   methods: {
-    ...mapActions("quanlyhethong", ["getCate","saveCate"]),
-    async initialize() {
-      var resultCate = await this.getCate();
-      this.listCate = resultCate.data;
+    ...mapActions('quanlyhethong', ['getCate', 'saveCate']),
+    async initialize () {
+      var resultCate = await this.getCate()
+      this.listCate = resultCate.data
     },
-    async insertSizeData() {
-      this.formHasErrors = false;
+    async insertSizeData () {
+      this.formHasErrors = false
 
       Object.keys(this.form).forEach((f) => {
-        if (!this.form[f]) this.formHasErrors = true;
+        if (!this.form[f]) this.formHasErrors = true
 
-        this.$refs[f].validate(true);
-        return;
-      });
+        this.$refs[f].validate(true)
+      })
       if (this.cate_cd != null && this.name != null) {
         var param = {
           cate_cd: this.cate_cd,
-          name: this.name,
-        };
-        var resp = await this.saveCate(param);
-        if (resp.data == "Save Success") {
-          this.cate_cd = null;
-          this.name = null;
+          name: this.name
+        }
+        var resp = await this.saveCate(param)
+        if (resp.data == 'Save Success') {
+          this.cate_cd = null
+          this.name = null
           //
-          this.errorMessages = [];
-          this.formHasErrors = false;
+          this.errorMessages = []
+          this.formHasErrors = false
 
           Object.keys(this.form).forEach((f) => {
-            this.$refs[f].reset();
-          });
+            this.$refs[f].reset()
+          })
           //
-          this.initialize();
+          this.initialize()
         }
       }
-    },
-  },
-};
+    }
+  }
+}
 </script>
 <style scoped>
 #preview {

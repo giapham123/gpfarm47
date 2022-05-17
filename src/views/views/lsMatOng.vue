@@ -50,90 +50,90 @@
   </v-container>
 </template>
 <script>
-import { mapActions, mapState } from "vuex";
-import moreImage from "./moreImage.vue"
+import { mapActions, mapState } from 'vuex'
+import moreImage from './moreImage.vue'
 export default {
-   components: {
+  components: {
     moreImage
   },
   data: () => ({
     paramImage: [],
     showDialog: false,
-    sortPrice: "newest",
+    sortPrice: 'newest',
     page: 1,
     selectedItem: 1,
     items: [
-      { text: "Real-Time", icon: "mdi-clock" },
-      { text: "Audience", icon: "mdi-account" },
-      { text: "Conversions", icon: "mdi-flag" },
+      { text: 'Real-Time', icon: 'mdi-clock' },
+      { text: 'Audience', icon: 'mdi-account' },
+      { text: 'Conversions', icon: 'mdi-flag' }
     ],
     lsProducts: [
       {
-        file:"https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg",
-        name:"Mật Ong Hoa Cafe",
-        price:150000,
-        code:"MO1"
+        file: 'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg',
+        name: 'Mật Ong Hoa Cafe',
+        price: 150000,
+        code: 'MO1'
       },
-       {
-        file:"https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg",
-        name:"Mật Ong Hoa Bạc Hà",
-        price:150000,
-        code:"MO2"
+      {
+        file: 'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg',
+        name: 'Mật Ong Hoa Bạc Hà',
+        price: 150000,
+        code: 'MO2'
       },
-      
-       {
-        file:"https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg",
-        name:"Mật Ong Rừng",
-        price:800000,
-        code:"MO3"
+
+      {
+        file: 'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg',
+        name: 'Mật Ong Rừng',
+        price: 800000,
+        code: 'MO3'
       },
-       {
-        file:"https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg",
-        name:"Mật Ong Rừng",
-        price:800000,
-        code:"MO4"
-      }  ,
-       {
-        file:"https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg",
-        name:"Mật Ong Rừng",
-        price:800000,
-        code:"MO5"
-      }     
+      {
+        file: 'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg',
+        name: 'Mật Ong Rừng',
+        price: 800000,
+        code: 'MO4'
+      },
+      {
+        file: 'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg',
+        name: 'Mật Ong Rừng',
+        price: 800000,
+        code: 'MO5'
+      }
     ],
     searhPrice: null
   }),
   watch: {
   },
   computed: {
-    ...mapState("views", ["urlChange"]),
-    lsData() {
-      if (this.urlChange == "TTBT") {
-        this.initialize("Thời Trang Bé Trai");
-        return "Thời Trang Bé Trai";
-      } else if (this.urlChange == "TTBG") {
-        this.initialize("Thời Trang Bé Gái");
-        return "Thời Trang Bé Gái";
+    ...mapState('views', ['urlChange']),
+    lsData () {
+      if (this.urlChange == 'TTBT') {
+        this.initialize('Thời Trang Bé Trai')
+        return 'Thời Trang Bé Trai'
+      } else if (this.urlChange == 'TTBG') {
+        this.initialize('Thời Trang Bé Gái')
+        return 'Thời Trang Bé Gái'
       }
-    },
+    }
   },
-  created() {
-    if (this.$route.params.id == "TTBT") {
-      this.initialize("Thời Trang Bé Trai");
-    } else if (this.$route.params.id == "TTBG") {
-      this.initialize("Thời Trang Bé Gái");
+  created () {
+    if (this.$route.params.id == 'TTBT') {
+      this.initialize('Thời Trang Bé Trai')
+    } else if (this.$route.params.id == 'TTBG') {
+      this.initialize('Thời Trang Bé Gái')
     }
   },
   methods: {
-    ...mapActions("views", ["getAllData"]),
-    onPageChange() {
-      if (this.$route.params.id == "TTBT") {
-        this.initialize("Thời Trang Bé Trai");
-      } else if (this.$route.params.id == "TTBG") {
-        this.initialize("Thời Trang Bé Gái");
+    ...mapActions('views', ['getAllData']),
+    onPageChange () {
+      if (this.$route.params.id == 'TTBT') {
+        this.initialize('Thời Trang Bé Trai')
+      } else if (this.$route.params.id == 'TTBG') {
+        this.initialize('Thời Trang Bé Gái')
       }
     },
-    moreImages(item){
-      if(item.code == "MO1"){
+    moreImages (item) {
+      if (item.code == 'MO1') {
         this.paramImage = [
           'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg',
           'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg',
@@ -142,16 +142,16 @@ export default {
           'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg'
         ]
       }
-      if(item.code == "MO2"){
-         this.paramImage = [
+      if (item.code == 'MO2') {
+        this.paramImage = [
           'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg',
           'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg',
           'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg',
           'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg'
         ]
       }
-      if(item.code == "MO3"){
-         this.paramImage = [
+      if (item.code == 'MO3') {
+        this.paramImage = [
           'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg',
           'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg',
           'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg'
@@ -159,11 +159,11 @@ export default {
       }
       this.showDialog = true
     },
-    closeDialog(){
+    closeDialog () {
       this.showDialog = false
     }
-  },
-};
+  }
+}
 </script>
   <style>
 .parent {

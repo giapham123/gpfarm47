@@ -37,7 +37,7 @@ export default {
   data: () => ({}),
   watch: {},
   computed: {},
-  created() {},
-  methods: {},
-};
+  created () {},
+  methods: {}
+}
 </script>

@@ -50,29 +50,29 @@
   </v-container>
 </template>
 <script>
-import { mapActions, mapState } from "vuex";
-import moreImage from "./moreImage.vue"
+import { mapActions, mapState } from 'vuex'
+import moreImage from './moreImage.vue'
 export default {
-   components: {
+  components: {
     moreImage
   },
   data: () => ({
-    sortPrice: "newest",
+    sortPrice: 'newest',
     page: 1,
     paramImage: [],
     showDialog: false,
     selectedItem: 1,
     items: [
-      { text: "Real-Time", icon: "mdi-clock" },
-      { text: "Audience", icon: "mdi-account" },
-      { text: "Conversions", icon: "mdi-flag" },
+      { text: 'Real-Time', icon: 'mdi-clock' },
+      { text: 'Audience', icon: 'mdi-account' },
+      { text: 'Conversions', icon: 'mdi-flag' }
     ],
     lsProducts: [
       {
-        file:"https://media-cdn-v2.laodong.vn/storage/newsportal/2021/1/27/874754/Tinh-Bot-Nghe-2-01.jpg",
-        name:"Bột Nghệ",
-        price:100000,
-        code:1
+        file: 'https://media-cdn-v2.laodong.vn/storage/newsportal/2021/1/27/874754/Tinh-Bot-Nghe-2-01.jpg',
+        name: 'Bột Nghệ',
+        price: 100000,
+        code: 1
       }
     ],
     searhPrice: null
@@ -80,14 +80,14 @@ export default {
   watch: {
   },
   computed: {
-  
+
   },
-  created() {
-  
+  created () {
+
   },
   methods: {
-    moreImages(item){
-      if(item.code == 1){
+    moreImages (item) {
+      if (item.code == 1) {
         this.paramImage = [
           'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg',
           'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg',
@@ -98,11 +98,11 @@ export default {
       }
       this.showDialog = true
     },
-    closeDialog(){
+    closeDialog () {
       this.showDialog = false
     }
-  },
-};
+  }
+}
 </script>
   <style>
 </style>

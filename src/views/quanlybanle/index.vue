@@ -88,16 +88,16 @@
   </v-card>
 </template>
 <script>
-import { mapActions } from "vuex";
-import detailProduct from "./detailProduct";
-import popupChooseForRetail from "./popupChooseForRetail";
-import Loading from "vue-loading-overlay";
-import "vue-loading-overlay/dist/vue-loading.css";
+import { mapActions } from 'vuex'
+import detailProduct from './detailProduct'
+import popupChooseForRetail from './popupChooseForRetail'
+import Loading from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/vue-loading.css'
 export default {
   components: {
     detailProduct,
     popupChooseForRetail,
-    Loading,
+    Loading
   },
   data: () => ({
     loading: false,
@@ -105,21 +105,21 @@ export default {
     isShowDetail: false,
     dataShowDetail: [],
     cart: [],
-    ordernum: "0",
-    name: "",
+    ordernum: '0',
+    name: '',
     size: {
-      selected: "",
-      item: [],
+      selected: '',
+      item: []
     },
     images: [],
     headers: [
       {
-        text: "STT",
-        align: "start",
+        text: 'STT',
+        align: 'start',
         sortable: false,
-        value: "stt",
-        width: "50px",
-        class: "primary white--text",
+        value: 'stt',
+        width: '50px',
+        class: 'primary white--text'
       },
       // {
       //   text: 'Mã SP',
@@ -129,132 +129,132 @@ export default {
       //   width: '100px'
       // },
       {
-        text: "TÊN",
-        value: "name",
-        width: "200px",
+        text: 'TÊN',
+        value: 'name',
+        width: '200px',
         sortable: false,
-        class: "primary white--text",
+        class: 'primary white--text'
       },
       {
-        text: "BLOCK",
-        value: "block",
-        width: "100px",
+        text: 'BLOCK',
+        value: 'block',
+        width: '100px',
         sortable: false,
-        class: "primary white--text",
+        class: 'primary white--text'
       },
       {
-        text: "MÀU SẮC",
-        value: "color_nm",
-        width: "100px",
+        text: 'MÀU SẮC',
+        value: 'color_nm',
+        width: '100px',
         sortable: false,
-        class: "primary white--text",
+        class: 'primary white--text'
       },
       {
-        text: "SIZE",
-        value: "size_cd",
-        width: "100px",
+        text: 'SIZE',
+        value: 'size_cd',
+        width: '100px',
         sortable: false,
-        class: "primary white--text",
+        class: 'primary white--text'
       },
       {
-        text: "GIÁ",
-        value: "price",
-        width: "100px",
+        text: 'GIÁ',
+        value: 'price',
+        width: '100px',
         sortable: false,
-        class: "primary white--text",
+        class: 'primary white--text'
       },
       {
-        text: "HÀNH ĐỘNG",
-        value: "actions",
-        width: "100px",
+        text: 'HÀNH ĐỘNG',
+        value: 'actions',
+        width: '100px',
         sortable: false,
-        class: "primary white--text",
-      },
+        class: 'primary white--text'
+      }
     ],
-    listDataProduct: [],
+    listDataProduct: []
   }),
 
   computed: {},
 
   watch: {
-    listDataProduct() {
+    listDataProduct () {
       for (var i = 0; i < this.listDataProduct.length; i++) {
-        this.listDataProduct[i].stt = i + 1;
+        this.listDataProduct[i].stt = i + 1
       }
-    },
+    }
   },
 
-  created() {
-    this.initialize();
+  created () {
+    this.initialize()
   },
 
   methods: {
-    ...mapActions("quanlybanle", [
-      "searchDataInRetailView",
-      "layhinh",
-      "laysize",
-      "getDataInRetailView",
-      "deleteProductDetail",
+    ...mapActions('quanlybanle', [
+      'searchDataInRetailView',
+      'layhinh',
+      'laysize',
+      'getDataInRetailView',
+      'deleteProductDetail'
     ]),
-    showdialogRetail() {
-      this.isShowgetRetail = true;
+    showdialogRetail () {
+      this.isShowgetRetail = true
     },
 
-    closeShowGetRetail() {
-      this.isShowgetRetail = false;
+    closeShowGetRetail () {
+      this.isShowgetRetail = false
     },
-    closedetail() {
-      this.isShowDetail = false;
+    closedetail () {
+      this.isShowDetail = false
     },
-    async deleteRetailProduct(item) {
-      var result = await this.deleteProductDetail(item.id);
-      if (result.statusText == "OK") {
-        this.initialize();
+    async deleteRetailProduct (item) {
+      var result = await this.deleteProductDetail(item.id)
+      if (result.statusText == 'OK') {
+        this.initialize()
       }
     },
-    async initialize() {
-      this.loading = true;
-      var result = await this.getDataInRetailView();
-      var resultSize = await this.laysize();
-      this.listDataProduct = result.data;
-      this.size.item = resultSize.data;
-      this.loading = false;
+    async initialize () {
+      this.loading = true
+      var result = await this.getDataInRetailView()
+      var resultSize = await this.laysize()
+      this.listDataProduct = result.data
+      this.size.item = resultSize.data
+      this.loading = false
     },
-    async displayimage(row) {
-      var result = await this.layhinh({ product_id: row.product_cd });
+    async displayimage (row) {
+      var result = await this.layhinh({ product_id: row.product_cd })
       for (var i = 0; i < result.data.length; i++) {
-        result.data[i].file = process.env.VUE_APP_SERVER + result.data[i].file;
+        result.data[i].file = process.env.VUE_APP_SERVER + result.data[i].file
       }
-      this.images = result.data;
+      this.images = result.data
     },
-    async searchDataForRetail() {
-      this.loading = true;
+    async searchDataForRetail () {
+      this.loading = true
       var params = {
-        name: this.name,
-      };
-      var result = await this.searchDataInRetailView(params);
-      this.listDataProduct = result.data;
-      this.loading = false;
+        name: this.name
+      }
+      var result = await this.searchDataInRetailView(params)
+      this.listDataProduct = result.data
+      this.loading = false
     },
-    addtoorder(item) {
-      this.cart.push(item.item);
-      this.ordernum = this.cart.length;
-      this.listDataProduct.splice(this.listDataProduct.indexOf(item.item), 1);
+    addtoorder (item) {
+      this.cart.push(item.item)
+      this.ordernum = this.cart.length
+      this.listDataProduct.splice(this.listDataProduct.indexOf(item.item), 1)
     },
-    showCart() {
-      this.dataShowDetail = this.cart;
-      this.isShowDetail = true;
+    showCart () {
+      this.dataShowDetail = this.cart
+      this.isShowDetail = true
     },
-    dataRetail() {
-      this.initialize();
+    dataRetail () {
+      this.initialize()
     },
-    finishedExportForRetail() {
-      this.dataShowDetail = [];
-      this.cart = [];
-      this.ordernum = 0;
-    },
-  },
-};
+    finishedExportForRetail () {
+      this.dataShowDetail = []
+      this.cart = []
+      this.ordernum = 0
+    }
+  }
+}
 </script>
 <style scoped>
 #preview {
