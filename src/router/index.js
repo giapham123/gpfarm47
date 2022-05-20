@@ -17,6 +17,7 @@ import lsTieu from '@/views/views/lsTieu'
 import lsCacao from '@/views/views/lsCacao'
 import lsNongSanKhac from '@/views/views/lsNongSanKhac'
 import moreImage from '@/views/views/moreImage'
+import luckyCycle from '@/views/views/luckyCycle'
 
 Vue.use(VueRouter)
 
@@ -129,6 +130,14 @@ const routes = [
     path: '/nong-san-khac',
     name: 'lsNongSanKhac',
     component: lsNongSanKhac,
+    meta: {
+      requiresAuth: false
+    }
+  },
+  {
+    path: '/lucky-cycle',
+    name: 'Lucky Cycle',
+    component: luckyCycle,
     meta: {
       requiresAuth: false
     }

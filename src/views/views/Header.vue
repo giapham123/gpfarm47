@@ -41,6 +41,9 @@
             <v-tab @click="directlinkLsProductNongSanKhac()" class="headerStyle"
             >Nông Sản Khác</v-tab
           >
+                      <v-tab @click="directlinkLuckyCycle()" class="headerStyle"
+            >Vòng Quay May Mắn</v-tab
+          >
         </v-tabs>
       </v-container>
     </template>
@@ -84,6 +87,9 @@ export default {
     },
     directlinkLsProductCacao () {
       this.$router.push({ path: '/cacao' })
+    },
+    directlinkLuckyCycle () {
+      this.$router.push({ path: '/lucky-cycle' })
     }
   }
 }
