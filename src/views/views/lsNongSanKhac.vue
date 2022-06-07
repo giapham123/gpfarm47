@@ -71,20 +71,20 @@ export default {
       {
         file: 'https://i1-kinhdoanh.vnecdn.net/2022/04/21/sr-1650527126-7085-1650528228.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=6UtM5yPFif-9ri4iG1DScQ',
         name: 'Sầu Riêng',
-        price: 'Hàng Order',
+        price: 'Hàng Order Theo Mùa',
         code: 1
       },
       {
         file: 'https://leep.imgix.net/2020/09/la-xoai-giup-giam-mo-02.jpg?auto=compress&fm=pjpg&ixlib=php-1.2.1',
         name: 'Xoài',
-        price: 'Hàng Order',
+        price: 'Hàng Order Theo Mùa',
         code: 2
       },
 
       {
         file: 'https://afamilycdn.com/thumb_w/650/2017/bo-2-1492596568478.jpg',
         name: 'Bơ',
-        price: 'Hàng Order',
+        price: 'Hàng Order Theo Mùa',
         code: 3
       }
     ],

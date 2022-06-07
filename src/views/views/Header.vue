@@ -32,12 +32,12 @@
           <v-tab @click="directlinkLsProductNghe()" class="headerStyle"
             >Nghệ</v-tab
           >
-            <v-tab @click="directlinkLsProductTieu()" class="headerStyle"
+            <!-- <v-tab @click="directlinkLsProductTieu()" class="headerStyle"
             >Tiêu<ul></ul></v-tab
           >
             <v-tab @click="directlinkLsProductCacao()" class="headerStyle"
             >Cacao</v-tab
-          >
+          > -->
             <v-tab @click="directlinkLsProductNongSanKhac()" class="headerStyle"
             >Nông Sản Khác</v-tab
           >

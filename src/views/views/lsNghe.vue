@@ -32,7 +32,7 @@
                         {{ item.name }}
                       </div>
                       <p class="stylePrice">
-                        {{ new Intl.NumberFormat().format(item.price) }}đ
+                        {{ new Intl.NumberFormat().format(item.price) }}đ  / 500gr
                       </p>
                     </v-card-text>
                     <v-card-text class="text-center" v-else>
@@ -69,9 +69,15 @@ export default {
     ],
     lsProducts: [
       {
-        file: 'https://media-cdn-v2.laodong.vn/storage/newsportal/2021/1/27/874754/Tinh-Bot-Nghe-2-01.jpg',
-        name: 'Bột Nghệ',
-        price: 100000,
+        file: require('../../../assets/nghe/nghe.jpg'),
+        name: 'Viên Bột Nghệ',
+        price: 170000,
+        code: 1
+      },
+       {
+        file: require('../../../assets/nghe/tinhbotnghe.png'),
+        name: 'Tinh Bột Nghệ',
+        price: 150000,
         code: 1
       }
     ],

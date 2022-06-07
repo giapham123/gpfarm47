@@ -69,35 +69,29 @@ export default {
     ],
     lsProducts: [
       {
-        file: 'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg',
+        file: require('../../../assets/mat-ong/hoacf.jpg'),
         name: 'Mật Ong Hoa Cafe',
-        price: 150000,
+        price: 190000,
         code: 'MO1'
       },
       {
-        file: 'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg',
+        file: require('../../../assets/mat-ong/bacha.jpg'),
         name: 'Mật Ong Hoa Bạc Hà',
-        price: 150000,
+        price: 360000,
         code: 'MO2'
       },
 
       {
-        file: 'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg',
-        name: 'Mật Ong Rừng',
-        price: 800000,
+        file: require('../../../assets/mat-ong/cokim.jpg'),
+        name: 'Mật Ong Hoa Cỏ Kim',
+        price: 210000,
         code: 'MO3'
       },
       {
-        file: 'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg',
-        name: 'Mật Ong Rừng',
-        price: 800000,
+        file: require('../../../assets/mat-ong/nhan.jpg'),
+        name: 'Mật Ong Hoa Nhãn',
+        price: 270000,
         code: 'MO4'
-      },
-      {
-        file: 'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg',
-        name: 'Mật Ong Rừng',
-        price: 800000,
-        code: 'MO5'
       }
     ],
     searhPrice: null
@@ -157,7 +151,7 @@ export default {
           'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg'
         ]
       }
-      this.showDialog = true
+      // this.showDialog = true
     },
     closeDialog () {
       this.showDialog = false
