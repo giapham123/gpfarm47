@@ -120,7 +120,7 @@ export default {
           'https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/10/16/mat-ong2-1634396262440751113159.jpg'
         ]
       }
-      this.showDialog = true
+      // this.showDialog = true
     },
     closeDialog () {
       this.showDialog = false
